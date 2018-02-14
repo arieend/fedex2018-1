@@ -1,0 +1,11 @@
+<ion-view view-title="{{server.title}}">
+  <ion-content class="im-wrapper" ng-show="servers[serverId]">
+    <h4 class="text-center">קטגוריות לשרת</h4>
+    <h4>{{servers[serverId].title}}</h4>
+    <ion-list>
+      <ion-item ng-show="c.statuses.length" ng-repeat="c in servers[serverId].rawCategories" ui-sref="app.png.details({serverId:serverId,categoryId:c.categoryId})">
+        {{c.category}} {{c.statuses}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

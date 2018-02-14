@@ -1,0 +1,11 @@
+<ion-view view-title="פירוט לקטגוריה">
+  <ion-content class="im-wrapper">
+    <h4 class="text-center">פירוט</h4>
+    <div ng-if="serverCategoryId">{{serverCategoryId}}</div>
+    <ul>
+      <ion-item class="item" ng-repeat="i in serverCategoryDetails[serverCategoryId]">
+        {{i.alertNo}} {{i.alertDesc}} {{i.statusdesc}}
+      </ion-item>
+    </ul>
+  </ion-content>
+</ion-view>

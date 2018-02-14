@@ -1,0 +1,13 @@
+<ion-view view-title="PNG">
+  <ion-content class="">
+    <h4 class="text-center">שרתים</h4>
+    <ul>
+      <li class="item ion-item item-text-wrap" ng-repeat="s in servers" ui-sref="app.png.categories({serverId:s.id})">
+        <h2>{{s.title}}</h2>
+        <div ng-repeat="(k,v) in s.total">
+          {{k}} : {{v}}
+        </div>
+      </li>
+    </ul>
+  </ion-content>
+</ion-view>
