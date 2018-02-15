@@ -140,6 +140,16 @@ app.config(function($stateProvider, $urlRouterProvider) {
       }
     })
 
+    .state('app.png.alerts', {
+      url: '/details/:alertNo',
+      views: {
+        'menuContent@app': {
+          templateUrl: 'templates/png/alerts.html',
+          controller: 'PngCtrl'
+        }
+      }
+    })
+
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/png/servers');

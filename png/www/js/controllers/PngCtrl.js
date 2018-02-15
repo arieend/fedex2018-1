@@ -77,6 +77,35 @@ app.controller('PngCtrl', function($scope, $ionicModal, $ionicPopover, $timeout,
     $scope.getDetails()
   }
 
+  function createAlerts(data) {
+    $scope.serverAlerts = {}
+
+    data.forEach(function(d) {
+      var key = d.alertNo;
+      if (!$scope.serverAlerts[key])
+        $scope.serverAlerts[key] = [];
+      $scope.serverAlerts[key].push(d);
+    })
+
+    console.log("serverAlerts :", $scope.serverAlerts)
+  }
+  $scope.getAlerts = function() {
+    $http.get("https://raw.githubusercontent.com/arieend/fedex2018/master/data/png/server/alerts.json").success(
+      function(res) {
+        $scope.alerts = res
+        createAlerts(res);
+      }
+    ).
+    error(function(err) {
+      $scope.error = "Failed to get details";
+    })
+  }
+
+  if ($state.params.serverId && $state.params.alertNo) {
+    $scope.serverAlertNo = $state.params.serverId + $state.params.alertNo;
+    $scope.getAlerts()
+  }
+
   $scope.getStats();
 
 });
